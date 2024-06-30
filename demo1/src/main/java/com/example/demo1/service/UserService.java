@@ -14,6 +14,10 @@ public class UserService {
   UserMapper userMapper;
 
   public ArrayList<UserResponse> getSelectAll(UserRequest userRequest) {
-    return userMapper.getAllSelect(userRequest);
+    return userMapper.getSelectAll(userRequest);
+  }
+
+  public  ArrayList<UserResponse> getSelectById(String id) {
+    return userMapper.getSelectById(id);
   }
 }

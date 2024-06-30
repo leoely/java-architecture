@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server1" />
         <module name="demo1" />
+        <module name="demo2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -18,6 +19,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="all" options="" />
       <module name="demo1" options="-parameters" />
+      <module name="demo2" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="server1" options="-parameters" />
     </option>

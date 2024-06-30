@@ -4,7 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo1.mapper.UserMapper">
   <select id="getAllSelect" parameterType="com.example.demo1.entity.request.UserRequest" resultType="com.example.demo1.entity.response.UserResponse">
-    select * from user
+    select * from users
     <where>
       <if test="id != null">
         AND id=#{id}
@@ -12,6 +12,12 @@
       <if test="gender != null">
         AND gender=#{gender}
       </if>
+      <if test="name != null">
+        AND name=#{name}
+      </if>
     </where>
+  </select>
+  <select id="getSelectById" parameterType="String" resultType="com.example.demo1.entity.response.UserResponse">
+    select * from users where id=#{id}
   </select>
 </mapper>

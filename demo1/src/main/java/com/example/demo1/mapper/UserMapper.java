@@ -8,5 +8,6 @@ import java.util.ArrayList;
 
 @Repository
 public interface UserMapper {
-  ArrayList<UserResponse> getAllSelect(UserRequest request);
+  ArrayList<UserResponse> getSelectAll(UserRequest request);
+  ArrayList<UserResponse> getSelectById(String id);
 }
