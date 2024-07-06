@@ -16,7 +16,7 @@ public class OrderController {
   @Autowired
   OrderService orderService;
 
-  @PostMapping("/order/all")
+  @PostMapping("/orders/all")
   public ArrayList<OrderResponse> getOrderAll(@RequestBody OrderRequest orderRequest) {
     return orderService.getSelectAll(orderRequest);
   }

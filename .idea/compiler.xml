@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="server1" />
         <module name="demo1" />
+        <module name="kafka1" />
         <module name="demo2" />
       </profile>
     </annotationProcessing>
@@ -20,6 +21,7 @@
       <module name="all" options="" />
       <module name="demo1" options="-parameters" />
       <module name="demo2" options="-parameters" />
+      <module name="kafka1" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="server1" options="-parameters" />
     </option>

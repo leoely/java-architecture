@@ -18,6 +18,16 @@ CREATE TABLE `orders` (
 INSERT INTO `orders` (`id`, `status`, `userId`) VALUES
 (0,	1,	0);
 
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE `products` (
+  `id` bigint NOT NULL,
+  `name` varchar(10) DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `dirty` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint NOT NULL,
@@ -29,4 +39,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-06-30 04:12:12
+-- 2024-07-06 11:43:21

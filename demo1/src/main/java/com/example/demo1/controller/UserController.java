@@ -14,12 +14,12 @@ public class UserController {
   @Autowired
   UserService userService;
 
-  @PostMapping("/user/all")
+  @PostMapping("/users/all")
   public ArrayList<UserResponse> getUserAll(@RequestBody UserRequest userRequest) {
     return userService.getSelectAll(userRequest);
   }
 
-  @GetMapping("/user/{id}")
+  @GetMapping("/users/{id}")
   public  ArrayList<UserResponse> getUserById(@PathVariable String id) {
     return userService.getSelectById(id);
   }
