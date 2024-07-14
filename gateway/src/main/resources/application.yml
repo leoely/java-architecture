@@ -1,0 +1,26 @@
+server:
+  port: 8085
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: Microservice1
+          uri: http://localhost:8081/
+          Predicates:
+            - Path=/users/**
+        - id: Microservice2
+          uri: http://localhost:8082/
+          Predicates:
+            - Path=/orders/**
+        - id: Microservice3
+          uri: http://localhost:8083/
+          Predicates:
+            - Path=/products/**
+        - id: Microservice4
+          uri: http://localhost:8084/
+          Predicates:
+            - Path=/feedbacks/**
