@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="redis1" />
         <module name="server1" />
         <module name="demo1" />
         <module name="kafka1" />
@@ -22,6 +23,7 @@
       <module name="demo1" options="-parameters" />
       <module name="demo2" options="-parameters" />
       <module name="kafka1" options="-parameters" />
+      <module name="redis1" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="server1" options="-parameters" />
     </option>

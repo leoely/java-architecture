@@ -15,12 +15,12 @@ public class UserController {
   UserService userService;
 
   @PostMapping("/users/all")
-  public ArrayList<UserResponse> getUserAll(@RequestBody UserRequest userRequest) {
+  public ArrayList<UserResponse> getUsersAll(@RequestBody UserRequest userRequest) {
     return userService.getSelectAll(userRequest);
   }
 
   @GetMapping("/users/{id}")
-  public  ArrayList<UserResponse> getUserById(@PathVariable String id) {
+  public  ArrayList<UserResponse> getUsersById(@PathVariable String id) {
     return userService.getSelectById(id);
   }
 }

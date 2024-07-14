@@ -22,13 +22,13 @@ public class ProductController {
   ProductMapper productMapper;
 
   @PostMapping("products/insert")
-  public String insertProduct(@RequestBody ProductRequest productRequest) {
+  public String insertProducts(@RequestBody ProductRequest productRequest) {
     productProductorService.send("insertProduct", productRequest);
     return "success";
   }
 
   @PostMapping("products/{id}")
-  public ArrayList<ProductResponse> getProductById(@PathVariable String id) {
+  public ArrayList<ProductResponse> getProductsById(@PathVariable String id) {
     return productMapper.selectProductById(id);
   }
 }

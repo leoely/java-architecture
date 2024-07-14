@@ -17,7 +17,7 @@ public class OrderController {
   OrderService orderService;
 
   @PostMapping("/orders/all")
-  public ArrayList<OrderResponse> getOrderAll(@RequestBody OrderRequest orderRequest) {
+  public ArrayList<OrderResponse> getOrdersAll(@RequestBody OrderRequest orderRequest) {
     return orderService.getSelectAll(orderRequest);
   }
 }

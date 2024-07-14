@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/server01/pom.xml" />
         <option value="$PROJECT_DIR$/server1/pom.xml" />
         <option value="$PROJECT_DIR$/kafka1/pom.xml" />
+        <option value="$PROJECT_DIR$/redis1/pom.xml" />
       </list>
     </option>
   </component>
