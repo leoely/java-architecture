@@ -9,18 +9,18 @@ spring:
     gateway:
       routes:
         - id: Microservice1
-          uri: http://localhost:8081/
+          uri: lb://USER
           Predicates:
             - Path=/users/**
         - id: Microservice2
-          uri: http://localhost:8082/
+          uri: lb://ORDER
           Predicates:
             - Path=/orders/**
         - id: Microservice3
-          uri: http://localhost:8083/
+          uri: http://PRODUCT
           Predicates:
             - Path=/products/**
         - id: Microservice4
-          uri: http://localhost:8084/
+          uri: lb://FEEDBACK
           Predicates:
             - Path=/feedbacks/**
