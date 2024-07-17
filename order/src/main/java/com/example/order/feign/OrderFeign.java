@@ -9,6 +9,6 @@ import java.util.ArrayList;
 
 @FeignClient(value="USER")
 public interface OrderFeign {
-  @GetMapping("/user/{id}")
+  @GetMapping("/users/{id}")
   public ArrayList<UserResponse> getUserById(@PathVariable String id);
 }

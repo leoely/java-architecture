@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @SpringBootApplication
 @MapperScan("com.example.order.mapper")
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = {"com.example.demo2.feign"})
-@Component("com.example.demo2")
+@EnableFeignClients(basePackages = {"com.example.order.feign"})
+@Component("com.example.order")
 public class OrderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(OrderApplication.class, args);
