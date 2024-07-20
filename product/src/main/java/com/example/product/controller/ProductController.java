@@ -5,6 +5,7 @@ import com.example.product.entity.request.ProductRequest;
 import com.example.product.entity.response.ProductResponse;
 import com.example.product.mapper.ProductMapper;
 import com.example.product.service.ProductProductorService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ProductController {
   Logger logger = LoggerFactory.getLogger(ProductController.class);
 
   @PostMapping("products/insert")
-  public JsonResult<String> insertProducts(@RequestBody ProductRequest productRequest) {
+  public JsonResult<String> insertProducts(@RequestBody ProductRequest productRequest) throws JsonProcessingException {
     logger.info("[Visit] Api /products/insert.");
     productProductorService.send("insertProduct", productRequest);
     String result = "success";
