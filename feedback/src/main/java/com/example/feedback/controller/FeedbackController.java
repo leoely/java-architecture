@@ -1,5 +1,6 @@
 package com.example.feedback.controller;
 
+import com.example.common.entity.JsonResult;
 import com.example.feedback.entity.inner.Feedback;
 import com.example.feedback.entity.request.FeedbackRequest;
 import com.example.feedback.entity.response.FeedbackResponse;
@@ -28,10 +29,10 @@ public class FeedbackController {
   }
 
   @PostMapping("/feedbacks/{id}")
-  FeedbackResponse getFeedbackById(@PathVariable String id) {
+  JsonResult<FeedbackResponse> getFeedbackById(@PathVariable String id) {
     logger.info("[Visit] Api /feedbacks/{id}.");
     Feedback feedback = (Feedback) feedbackRepository.findById(id).get();
-    FeedbackResponse feedbackResponse = new FeedbackResponse(Integer.valueOf(feedback.id()), feedback.suggestion(), feedback.name());
-    return feedbackResponse;
+    FeedbackResponse result = new FeedbackResponse(Integer.valueOf(feedback.id()), feedback.suggestion(), feedback.name());
+    return JsonResult.ok(result);
   }
 }

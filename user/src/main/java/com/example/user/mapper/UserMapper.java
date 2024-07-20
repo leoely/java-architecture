@@ -1,7 +1,7 @@
 package com.example.user.mapper;
 
+import com.example.common.entity.response.UserResponse;
 import com.example.user.entity.request.UserRequest;
-import com.example.user.entity.response.UserResponse;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

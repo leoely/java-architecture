@@ -1,5 +1,6 @@
 package com.example.order.controller;
 
+import com.example.common.entity.JsonResult;
 import com.example.order.entity.request.OrderRequest;
 import com.example.order.entity.response.OrderResponse;
 import com.example.order.service.OrderService;
@@ -20,8 +21,9 @@ public class OrderController {
   Logger logger = LoggerFactory.getLogger(OrderController.class);
 
   @PostMapping("/orders/all")
-  public ArrayList<OrderResponse> getOrdersAll(@RequestBody OrderRequest orderRequest) {
+  public JsonResult<ArrayList<OrderResponse>> getOrdersAll(@RequestBody OrderRequest orderRequest) {
     logger.info("[Visit] Api /orders/all.");
-    return orderService.getSelectAll(orderRequest);
+    ArrayList<OrderResponse> result = orderService.getSelectAll(orderRequest);
+    return JsonResult.ok(result);
   }
 }

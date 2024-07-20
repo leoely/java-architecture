@@ -3,7 +3,7 @@ package com.example.order.service;
 import com.example.order.entity.inner.OrderInner;
 import com.example.order.entity.request.OrderRequest;
 import com.example.order.entity.response.OrderResponse;
-import com.example.order.entity.response.UserResponse;
+import com.example.common.entity.response.UserResponse;
 import com.example.order.feign.OrderFeign;
 import com.example.order.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
 package com.example.product.controller;
 
+import com.example.common.entity.JsonResult;
 import com.example.product.entity.request.ProductRequest;
 import com.example.product.entity.response.ProductResponse;
 import com.example.product.mapper.ProductMapper;
@@ -25,15 +26,17 @@ public class ProductController {
   Logger logger = LoggerFactory.getLogger(ProductController.class);
 
   @PostMapping("products/insert")
-  public String insertProducts(@RequestBody ProductRequest productRequest) {
+  public JsonResult<String> insertProducts(@RequestBody ProductRequest productRequest) {
     logger.info("[Visit] Api /products/insert.");
     productProductorService.send("insertProduct", productRequest);
-    return "success";
+    String result = "success";
+    return JsonResult.ok(result);
   }
 
   @PostMapping("products/{id}")
-  public ArrayList<ProductResponse> getProductsById(@PathVariable String id) {
+  public JsonResult<ArrayList<ProductResponse>> getProductsById(@PathVariable String id) {
     logger.info("[Visit] Api /products/insert.");
-    return productMapper.selectProductById(id);
+    ArrayList<ProductResponse> result = productMapper.selectProductById(id);
+    return JsonResult.ok(result);
   }
 }

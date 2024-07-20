@@ -9,6 +9,7 @@
         <module name="feedback" />
         <module name="server" />
         <module name="product" />
+        <module name="common" />
         <module name="user" />
         <module name="gateway" />
         <module name="order" />
@@ -18,6 +19,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="all" options="" />
+      <module name="common" options="" />
       <module name="feedback" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="order" options="-parameters" />

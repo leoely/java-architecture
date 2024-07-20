@@ -1,7 +1,8 @@
 package com.example.user.controller;
 
+import com.example.common.entity.JsonResult;
+import com.example.common.entity.response.UserResponse;
 import com.example.user.entity.request.UserRequest;
-import com.example.user.entity.response.UserResponse;
 import com.example.user.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,14 +19,16 @@ public class UserController {
   Logger logger = LoggerFactory.getLogger(UserController.class);
 
   @PostMapping("/users/all")
-  public ArrayList<UserResponse> getUsersAll(@RequestBody UserRequest userRequest) {
+  public JsonResult<ArrayList<UserResponse>> getUsersAll(@RequestBody UserRequest userRequest) {
     logger.info("[Visit] Api /users/all.");
-    return userService.getSelectAll(userRequest);
+    ArrayList<UserResponse> result = userService.getSelectAll(userRequest);
+    return JsonResult.ok(result);
   }
 
   @GetMapping("/users/{id}")
-  public  ArrayList<UserResponse> getUsersById(@PathVariable String id) {
+  public  JsonResult<ArrayList<UserResponse>> getUsersById(@PathVariable String id) {
     logger.info("[Visit] Api /users/{id}.");
-    return userService.getSelectById(id);
+    ArrayList<UserResponse> result = userService.getSelectById(id);
+    return JsonResult.ok(result);
   }
 }
