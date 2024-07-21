@@ -10,21 +10,27 @@
         <module name="server" />
         <module name="product" />
         <module name="common" />
+        <module name="text" />
         <module name="user" />
         <module name="gateway" />
         <module name="order" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="document" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="all" options="" />
       <module name="common" options="" />
+      <module name="document" options="-parameters" />
       <module name="feedback" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="product" options="-parameters" />
       <module name="server" options="-parameters" />
+      <module name="text" options="-parameters" />
       <module name="user" options="-parameters" />
     </option>
   </component>

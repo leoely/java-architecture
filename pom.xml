@@ -28,6 +28,7 @@
 	</scm>
   <modules>
     <module>common</module>
+    <module>text</module>
     <module>feedback</module>
     <module>gateway</module>
     <module>order</module>
