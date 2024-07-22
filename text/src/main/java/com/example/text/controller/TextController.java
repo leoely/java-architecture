@@ -16,18 +16,20 @@ public class TextController {
   TextService textService;
 
   @GetMapping("/texts/search")
-  public JsonResult<String> fullTextSearchText(@RequestParam String match) throws IOException {
+  public String fullTextSearchText(@RequestParam String match) throws IOException {
     String result = textService.fullTextSearchText(match);
-    return JsonResult.ok(result);
+    return result;
   }
 
   @PostMapping("/texts/insert")
-  public void insertText(@RequestBody Text text) {
+  public JsonResult<?> insertText(@RequestBody Text text) {
     textService.insertText(text);
+    return JsonResult.ok(null);
   }
 
   @DeleteMapping("/texts/{id}")
-  public void deleteText(@PathVariable String id) {
+  public JsonResult<?> deleteText(@PathVariable String id) {
     textService.deleteTextById(id);
+    return JsonResult.ok(null);
   }
 }
