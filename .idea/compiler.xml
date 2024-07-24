@@ -13,6 +13,7 @@
         <module name="text" />
         <module name="user" />
         <module name="gateway" />
+        <module name="point" />
         <module name="order" />
       </profile>
     </annotationProcessing>
@@ -28,6 +29,7 @@
       <module name="feedback" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="order" options="-parameters" />
+      <module name="point" options="-parameters" />
       <module name="product" options="-parameters" />
       <module name="server" options="-parameters" />
       <module name="text" options="-parameters" />

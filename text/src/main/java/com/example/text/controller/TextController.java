@@ -18,7 +18,7 @@ public class TextController {
   @GetMapping("/texts/search")
   public String fullTextSearchText(@RequestParam String match) throws IOException {
     String result = textService.fullTextSearchText(match);
-    return result;
+    return String.format("{\"status\":\"200\",\"data\":%s,\"message\":null}", result);
   }
 
   @PostMapping("/texts/insert")

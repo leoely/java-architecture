@@ -11,12 +11,25 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` bigint NOT NULL,
   `status` int DEFAULT NULL,
-  `userId` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `orders` (`id`, `status`, `user_id`) VALUES
+(0,	1,	0);
+
+DROP TABLE IF EXISTS `points`;
+CREATE TABLE `points` (
+  `id` bigint NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `count` bigint DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `orders` (`id`, `status`, `userId`) VALUES
-(0,	1,	0);
+INSERT INTO `points` (`id`, `user_id`, `count`) VALUES
+(0,	0,	0);
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
@@ -27,6 +40,8 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `products` (`id`, `name`, `status`, `dirty`) VALUES
+(0,	'battery',	0,	1);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -39,4 +54,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-07-06 11:43:21
+-- 2024-07-23 13:05:52

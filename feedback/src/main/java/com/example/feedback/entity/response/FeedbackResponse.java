@@ -1,3 +1,5 @@
 package com.example.feedback.entity.response;
 
-public record FeedbackResponse(long id, String suggestion, String name) {}
+import java.math.BigInteger;
+
+public record FeedbackResponse(BigInteger id, String suggestion, String name) {}

@@ -23,6 +23,7 @@
         <option value="$PROJECT_DIR$/common/pom.xml" />
         <option value="$PROJECT_DIR$/document/pom.xml" />
         <option value="$PROJECT_DIR$/text/pom.xml" />
+        <option value="$PROJECT_DIR$/point/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

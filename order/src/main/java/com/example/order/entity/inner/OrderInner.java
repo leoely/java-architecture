@@ -1,3 +1,5 @@
 package com.example.order.entity.inner;
 
-public record OrderInner(long id, int count, long userId) {}
+import java.math.BigInteger;
+
+public record OrderInner(BigInteger id, int count, long userId) {}
