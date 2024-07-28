@@ -32,7 +32,7 @@ public class CertificateService {
     this.vaultSysOperations = vaultTemplate.opsForSys();
     if (!this.vaultSysOperations.getMounts().containsKey("transit/")) {
       this.vaultSysOperations.mount("transit", VaultMount.create("transit"));
-      this.vaultTransitOperations.createKey("foo-key");
+      this.vaultTransitOperations.createKey("demo-key");
     }
   }
 

@@ -25,6 +25,7 @@
         <option value="$PROJECT_DIR$/text/pom.xml" />
         <option value="$PROJECT_DIR$/point/pom.xml" />
         <option value="$PROJECT_DIR$/certificate/pom.xml" />
+        <option value="$PROJECT_DIR$/websocket/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
