@@ -25,8 +25,8 @@ public class JsonResult<T> {
     return message;
   }
 
-  public static <E> JsonResult<E> ok(E data) {
-    return new JsonResult<E>(HttpStatus.OK, null, data);
+  public static <T> JsonResult<T> ok(T data) {
+    return new JsonResult<T>(HttpStatus.OK, null, data);
   }
 
   public static <E> JsonResult<E> bad(String message) {

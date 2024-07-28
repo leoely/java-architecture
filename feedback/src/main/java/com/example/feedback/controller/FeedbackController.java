@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.math.BigInteger;
+
 @RestController
 public class FeedbackController {
   @Autowired
@@ -22,9 +24,9 @@ public class FeedbackController {
   Logger logger = LoggerFactory.getLogger(FeedbackController.class);
 
   @PostMapping("/feedbacks/insert")
-  void insertFeedback(@RequestBody @Valid FeedbackRequest studentRequest) {
+  void insertFeedback(@RequestBody @Valid FeedbackRequest feedbackRequest) {
     logger.info("[Visit] Api /feedbacks/insert.");
-    Feedback feedback = new Feedback(studentRequest.id(), studentRequest.suggestion(), studentRequest.name());
+    Feedback feedback = new Feedback(feedbackRequest.id(), feedbackRequest.suggestion(), feedbackRequest.name());
     feedbackRepository.save(feedback);
   }
 
@@ -32,7 +34,7 @@ public class FeedbackController {
   JsonResult<FeedbackResponse> getFeedbackById(@PathVariable String id) {
     logger.info("[Visit] Api /feedbacks/{id}.");
     Feedback feedback = (Feedback) feedbackRepository.findById(id).get();
-    FeedbackResponse result = new FeedbackResponse(Integer.valueOf(feedback.id()), feedback.suggestion(), feedback.name());
+    FeedbackResponse result = new FeedbackResponse(BigInteger.valueOf(Long.valueOf(feedback.id())), feedback.suggestion(), feedback.name());
     return JsonResult.ok(result);
   }
 }

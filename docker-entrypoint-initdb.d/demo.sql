@@ -7,6 +7,15 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP TABLE IF EXISTS `certificate`;
+CREATE TABLE `certificate` (
+  `id` bigint NOT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `code` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` bigint NOT NULL,
@@ -54,4 +63,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-07-23 13:05:52
+-- 2024-07-25 14:04:44

@@ -10,6 +10,7 @@
         <module name="server" />
         <module name="product" />
         <module name="common" />
+        <module name="certificate" />
         <module name="text" />
         <module name="user" />
         <module name="gateway" />
@@ -24,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="all" options="" />
+      <module name="certificate" options="-parameters" />
       <module name="common" options="" />
       <module name="document" options="-parameters" />
       <module name="feedback" options="-parameters" />

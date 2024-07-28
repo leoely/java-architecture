@@ -1,5 +1,5 @@
 server:
-  port: 8087
+  port: 8088
 eureka:
   client:
     service-url:
@@ -24,3 +24,15 @@ spring:
           uri: lb://FEEDBACK
           Predicates:
             - Path=/feedbacks/**
+        - id: Microservice5
+          uri: lb://TEXT
+          Predicates:
+            - Path=/texts/**
+        - id: Microservice6
+          uri: lb://POINT
+          Predicates:
+            - Path=/points/**
+        - id: Microservice7
+          uri: lb://CERTIFICATE
+          Predicates:
+            - Path=/certificates/**

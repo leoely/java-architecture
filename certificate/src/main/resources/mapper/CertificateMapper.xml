@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.certificate.mapper.CertificateMapper">
+  <select id="selectCodeByUserId" parameterType="String" resultType="com.example.certificate.entity.response.CertificateResponse">
+    SELECT code FROM certificates WHERE user_id=#{userId}
+  </select>
+  <insert id="insert" parameterType="com.example.certificate.entity.inner.CertificateInner">
+    INSERT INTO certificates(id, user_id, code) VALUES (#{id}, #{userId}, #{code})
+  </insert>
+</mapper>
