@@ -36,3 +36,7 @@ spring:
           uri: lb://CERTIFICATE
           Predicates:
             - Path=/certificates/**
+        - id: Microservice8
+          uri: lb://SESSION
+          Predicates:
+            - Path=/sessions/**
