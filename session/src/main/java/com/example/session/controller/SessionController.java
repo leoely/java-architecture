@@ -19,8 +19,8 @@ public class SessionController {
 
   @PostMapping("/sessions/get")
   public JsonResult<SessionResponse> getSession(HttpSession session) {
-    int value1 = (int) session.getAttribute("key1");
-    int value2 = (int) session.getAttribute("key2");
+    int value1 = Integer.valueOf((String) session.getAttribute("key1"));
+    int value2 = Integer.valueOf((String) session.getAttribute("key2"));
     SessionResponse result = new SessionResponse(value1, value2);
     return JsonResult.ok(result);
   }
