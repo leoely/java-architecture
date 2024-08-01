@@ -21,7 +21,9 @@ public class CacheService {
 
   @PostConstruct
   void perpareKey() {
-    stringRedisTemplate.opsForList().leftPush(this.CACHE_KEY, "");
+    if (!stringRedisTemplate.hasKey(this.CACHE_KEY)) {
+      stringRedisTemplate.opsForList().leftPush(this.CACHE_KEY, "");
+    }
   }
 
   public CacheResponse selectCacheById(String id) throws JsonProcessingException {
