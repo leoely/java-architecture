@@ -7,14 +7,26 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `certificate`;
-CREATE TABLE `certificate` (
+DROP TABLE IF EXISTS `caches`;
+CREATE TABLE `caches` (
+  `id` bigint NOT NULL,
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `caches` (`id`, `content`) VALUES
+(0,	'demo-content');
+
+DROP TABLE IF EXISTS `certificates`;
+CREATE TABLE `certificates` (
   `id` bigint NOT NULL,
   `user_id` bigint DEFAULT NULL,
   `code` text,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `certificates` (`id`, `user_id`, `code`) VALUES
+(1,	0,	'vault:v1:HK9pD7Vq7ysydMcgAbJM3xNGkERPVBBCRrRhtiwdaIivh/zNOQ==');
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
@@ -38,7 +50,7 @@ CREATE TABLE `points` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `points` (`id`, `user_id`, `count`) VALUES
-(0,	0,	0);
+(0,	0,	1);
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
@@ -63,4 +75,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-07-25 14:04:44
+-- 2024-08-01 13:05:23

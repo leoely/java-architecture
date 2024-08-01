@@ -6,17 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="feedback" />
         <module name="server" />
         <module name="product" />
-        <module name="common" />
-        <module name="websocket" />
+        <module name="cache" />
         <module name="session" />
         <module name="certificate" />
+        <module name="point" />
+        <module name="feedback" />
+        <module name="common" />
+        <module name="websocket" />
         <module name="text" />
         <module name="user" />
         <module name="gateway" />
-        <module name="point" />
         <module name="order" />
       </profile>
     </annotationProcessing>
@@ -27,6 +28,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="all" options="" />
+      <module name="cache" options="-parameters" />
       <module name="certificate" options="-parameters" />
       <module name="common" options="" />
       <module name="document" options="-parameters" />
