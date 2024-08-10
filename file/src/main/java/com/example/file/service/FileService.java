@@ -13,7 +13,6 @@ public class FileService {
   private final String root = "/tmp/upload";
 
   public void save(MultipartFile multipartFile) throws IOException {
-    Path path = Paths.get(this.root, multipartFile.getOriginalFilename());
-    Files.copy(multipartFile.getInputStream(), path);
+    Files.copy(multipartFile.getInputStream(), Paths.get(this.root, multipartFile.getOriginalFilename()));
   }
 }

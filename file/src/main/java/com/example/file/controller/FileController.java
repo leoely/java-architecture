@@ -21,8 +21,8 @@ public class FileController {
     try {
       fileService.save(multipartFile);
     } catch (IOException e) {
-      return JsonResult.bad(e.getMessage());
+      return JsonResult.bad("Upload file fail.");
     }
-    return JsonResult.ok("success");
+    return JsonResult.ok("Upload file success");
   }
 }
