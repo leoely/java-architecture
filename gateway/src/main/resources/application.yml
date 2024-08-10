@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8091
 eureka:
   client:
     service-url:
@@ -44,3 +44,7 @@ spring:
           uri: lb://CACHE
           Predicates:
             - Path=/caches/**
+        - id: Microservice10
+          uri: lb://FILE
+          Predicates:
+            - Path=/files/**

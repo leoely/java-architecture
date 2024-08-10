@@ -13,6 +13,7 @@
         <module name="certificate" />
         <module name="point" />
         <module name="feedback" />
+        <module name="file" />
         <module name="common" />
         <module name="websocket" />
         <module name="text" />
@@ -33,6 +34,7 @@
       <module name="common" options="" />
       <module name="document" options="-parameters" />
       <module name="feedback" options="-parameters" />
+      <module name="file" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="order" options="-parameters" />
       <module name="point" options="-parameters" />
