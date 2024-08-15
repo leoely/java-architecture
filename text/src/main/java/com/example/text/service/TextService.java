@@ -20,7 +20,7 @@ public class TextService {
   public String fullTextSearchText(String match) throws IOException {
     RestClient restClient = RestClient.builder(new HttpHost("localhost", 9200, "http")).build();
     Request request = new Request("POST", "/texts/_doc/_search");
-    String json = String.format("{\"query\":{\"match\":{\"content\": \"%s\"}}}", match);
+    String json = String.format("{\"query\":{\"match\":{\"content\": {\"query\":\"%s\", \"fuzziness\": \"2\"}}}}", match);
     request.setJsonEntity(json);
     Response response = restClient.performRequest(request);
     String reponseBody = EntityUtils.toString(response.getEntity());

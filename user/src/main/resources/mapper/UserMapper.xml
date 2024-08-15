@@ -16,6 +16,7 @@
         AND name="#{name}"
       </if>
     </where>
+    LIMIT #{offset}, #{size}
   </select>
   <select id="getSelectById" parameterType="String" resultType="com.example.common.entity.response.UserResponse">
     SELECT * FROM users WHERE id=#{id}

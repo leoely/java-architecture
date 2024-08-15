@@ -1,3 +1,5 @@
 package com.example.user.entity.request;
 
-public record UserRequest(String id, String gender, String name) {}
+import java.math.BigInteger;
+
+public record UserRequest(String id, String gender, String name, BigInteger offset, BigInteger size) {}
