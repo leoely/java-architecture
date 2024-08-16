@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 @RestController
@@ -16,9 +17,9 @@ public class TextController {
   TextService textService;
 
   @GetMapping("/texts/search")
-  public String fullTextSearchText(@RequestParam String match) throws IOException {
-    String result = textService.fullTextSearchText(match);
-    return String.format("{\"status\":\"200\",\"data\":%s,\"message\":null}", result);
+  public JsonResult<ArrayList<Text>> fullTextSearchText(@RequestParam String match) throws IOException {
+    ArrayList<Text> result = textService.fullTextSearchText(match);
+    return JsonResult.ok(result);
   }
 
   @PostMapping("/texts/insert")

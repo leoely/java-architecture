@@ -1,5 +1,12 @@
 package com.example.text.service;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.json.jackson.JacksonJsonpMapper;
+import co.elastic.clients.transport.ElasticsearchTransport;
+import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.example.common.entity.JsonResult;
 import com.example.text.entity.inner.Text;
 import com.example.text.repository.TextRepository;
 import org.apache.http.HttpHost;
@@ -11,20 +18,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class TextService {
   @Autowired
   TextRepository textRepository;
 
-  public String fullTextSearchText(String match) throws IOException {
+  public ArrayList<Text> fullTextSearchText(String match) throws IOException {
     RestClient restClient = RestClient.builder(new HttpHost("localhost", 9200, "http")).build();
-    Request request = new Request("POST", "/texts/_doc/_search");
-    String json = String.format("{\"query\":{\"match\":{\"content\": {\"query\":\"%s\", \"fuzziness\": \"2\"}}}}", match);
-    request.setJsonEntity(json);
-    Response response = restClient.performRequest(request);
-    String reponseBody = EntityUtils.toString(response.getEntity());
-    return reponseBody;
+    JacksonJsonpMapper jsonpMapper = new JacksonJsonpMapper();
+    ElasticsearchTransport elasticsearchTransport = new RestClientTransport(restClient, jsonpMapper);
+    ElasticsearchClient elasticsearchClient = new ElasticsearchClient(elasticsearchTransport);
+    SearchResponse<Text> response = elasticsearchClient.search(s -> s
+      .index("texts")
+      .query(q -> q.match(t -> t.field("content").query(match))),
+      Text.class
+    );
+    List<Hit<Text>> hits = response.hits().hits();
+    ArrayList<Text> texts = new ArrayList<Text>();
+    for (Hit<Text> hit: hits) {
+      Text text = hit.source();
+      texts.add(text);
+    }
+    elasticsearchTransport.close();
+    return texts;
   }
 
   public void deleteTextById(String id) {
