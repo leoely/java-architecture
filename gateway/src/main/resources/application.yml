@@ -1,5 +1,5 @@
 server:
-  port: 8091
+  port: 8092
 eureka:
   client:
     service-url:
@@ -48,3 +48,7 @@ spring:
           uri: lb://FILE
           Predicates:
             - Path=/files/**
+        - id: Microservice11
+          uri: lb://LOCATION
+          Predicates:
+            - Path=/locations/**

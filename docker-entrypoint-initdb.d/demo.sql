@@ -28,6 +28,20 @@ CREATE TABLE `certificates` (
 INSERT INTO `certificates` (`id`, `user_id`, `code`) VALUES
 (1,	0,	'vault:v1:HK9pD7Vq7ysydMcgAbJM3xNGkERPVBBCRrRhtiwdaIivh/zNOQ==');
 
+DROP TABLE IF EXISTS `locations`;
+CREATE TABLE `locations` (
+  `id` bigint NOT NULL,
+  `name` varchar(10) DEFAULT NULL,
+  `longitude` decimal(17,14) DEFAULT NULL,
+  `latitude` decimal(17,14) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `locations` (`id`, `name`, `longitude`, `latitude`) VALUES
+(0,	'shanghai',	121.51977539062500,	31.04822792454978),
+(1,	'hangzhou',	120.91683347717286,	29.66550424246299),
+(2,	'nanjing',	120.91683347717286,	29.69413920369897);
+
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
   `id` bigint NOT NULL,
@@ -75,4 +89,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-08-01 13:05:23
+-- 2024-08-18 12:45:23

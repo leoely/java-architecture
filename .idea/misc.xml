@@ -29,6 +29,7 @@
         <option value="$PROJECT_DIR$/session/pom.xml" />
         <option value="$PROJECT_DIR$/cache/pom.xml" />
         <option value="$PROJECT_DIR$/file/pom.xml" />
+        <option value="$PROJECT_DIR$/location/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
