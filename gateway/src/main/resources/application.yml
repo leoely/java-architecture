@@ -1,5 +1,5 @@
 server:
-  port: 8092
+  port: 8093
 eureka:
   client:
     service-url:
@@ -52,3 +52,7 @@ spring:
           uri: lb://LOCATION
           Predicates:
             - Path=/locations/**
+        - id: Microservice12
+          uri: lb://QRCODE
+          Predicates:
+            - Path=/qrcode/**
