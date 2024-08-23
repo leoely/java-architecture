@@ -11,7 +11,10 @@ public class JsonResult<T> {
   private final String message;
 
   @JsonCreator
-  public JsonResult(HttpStatus status, String message, T data) {
+  public JsonResult(
+    @JsonProperty("status") HttpStatus status,
+    @JsonProperty("message") String message,
+    @JsonProperty("data") T data) {
     this.status = status;
     this.data = data;
     this.message = message;
