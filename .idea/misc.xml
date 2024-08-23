@@ -31,11 +31,13 @@
         <option value="$PROJECT_DIR$/file/pom.xml" />
         <option value="$PROJECT_DIR$/location/pom.xml" />
         <option value="$PROJECT_DIR$/qrcode/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/document/pom.xml" />
+        <option value="$PROJECT_DIR$/transaction/pom.xml" />
       </set>
     </option>
   </component>

@@ -12,7 +12,7 @@
       <if test="status != null">
         AND status=#{status}
       </if>
-      <if test="user_id != null">
+      <if test="userId != null">
         AND user_id=#{userId}
       </if>
     </where>

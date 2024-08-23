@@ -26,6 +26,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="document" target="21" />
+      <module name="transaction" target="22" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -46,6 +47,7 @@
       <module name="server" options="-parameters" />
       <module name="session" options="-parameters" />
       <module name="text" options="-parameters" />
+      <module name="transaction" options="-parameters" />
       <module name="user" options="-parameters" />
       <module name="websocket" options="-parameters" />
     </option>
