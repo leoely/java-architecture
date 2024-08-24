@@ -78,6 +78,16 @@ CREATE TABLE `products` (
 INSERT INTO `products` (`id`, `name`, `status`, `dirty`) VALUES
 (0,	'battery',	0,	1);
 
+DROP TABLE IF EXISTS `shedlock`;
+CREATE TABLE `shedlock` (
+  `name` varchar(64) NOT NULL,
+  `lock_util` timestamp NULL DEFAULT NULL,
+  `lock_at` timestamp NULL DEFAULT NULL,
+  `lock_by` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` bigint NOT NULL,
@@ -89,4 +99,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `gender`, `name`) VALUES
 (0,	1,	'tom');
 
--- 2024-08-18 12:45:23
+-- 2024-08-24 13:16:21

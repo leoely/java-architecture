@@ -4,6 +4,7 @@ import com.example.point.entity.inner.PointInner;
 import com.example.point.entity.request.PointRequest;
 import com.example.point.entity.response.PointResponse;
 import com.example.point.mapper.PointMapper;
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -17,6 +18,7 @@ public class ScheduleTask {
   PointMapper pointMapper;
 
   @Scheduled(fixedRate = 1000 * 60 * 60 * 24)
+  @SchedulerLock(name = "addPoint", lockAtLeastFor = "30s", lockAtMostFor = "3h")
   public void addPoint() {
     PointRequest pointRequest = new PointRequest(null, null);
     ArrayList<PointResponse> pointResponses = pointMapper.getAllSelect(pointRequest);
