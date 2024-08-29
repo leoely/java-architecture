@@ -5,6 +5,8 @@ import com.example.certificate.entity.request.CertificateCreateRequest;
 import com.example.certificate.entity.response.CertificateResponse;
 import com.example.certificate.mapper.CertificateMapper;
 import jakarta.annotation.PostConstruct;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.vault.core.VaultSysOperations;
@@ -22,8 +24,12 @@ public class CertificateService {
   @Autowired
   VaultTemplate vaultTemplate;
 
-  VaultTransitOperations vaultTransitOperations;
+  @Autowired
+  RedissonClient redissonClient;
 
+  final static String INSERT_LOCK = "insert-lock";
+
+  VaultTransitOperations vaultTransitOperations;
   VaultSysOperations vaultSysOperations;
 
   @PostConstruct
@@ -37,8 +43,14 @@ public class CertificateService {
   }
 
   public void insert(CertificateCreateRequest certificateCreateRequest) {
-    CertificateInner certificateInner = new CertificateInner(certificateCreateRequest.id(), certificateCreateRequest.userId(), this.vaultTransitOperations.encrypt("demo-key", certificateCreateRequest.code()));
-    certificateMapper.insert(certificateInner);
+    RLock lock = redissonClient.getLock(INSERT_LOCK);
+    boolean isLocked = lock.tryLock();
+    if (isLocked) {
+      lock.lock();
+      CertificateInner certificateInner = new CertificateInner(certificateCreateRequest.id(), certificateCreateRequest.userId(), this.vaultTransitOperations.encrypt("demo-key", certificateCreateRequest.code()));
+      certificateMapper.insert(certificateInner);
+      lock.unlock();
+    }
   }
 
   public String selectCodeByUserId(String id) {
